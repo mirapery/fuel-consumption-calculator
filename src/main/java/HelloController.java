@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -6,31 +7,34 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class HelloController {
 
     @FXML public Button btnEN, btnFR, btnJP, btnIR, btnCalculate;
     @FXML public Label lblDistance, lblFuel, lblResult;
     @FXML public TextField txtDistance, txtFuel;
 
-    private Locale currentLocale = Locale.ENGLISH;
     private ResourceBundle bundle;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        setLanguage(new Locale("en", "US"));
+    public void initialize() {
+        setLanguage(new Locale("en", "EN"));
     }
 
     @FXML
     private void setLanguage(Locale locale) {
-        currentLocale = locale;
-        bundle = ResourceBundle.getBundle("messages", currentLocale);
-
-        btnCalculate.setText(bundle.getString("calculate.button"));
-        lblDistance.setText(bundle.getString("distance.label"));
-        lblFuel.setText(bundle.getString("fuel.label"));
-        lblResult.setText("");
+        try {
+            bundle = ResourceBundle.getBundle("messages", locale);
+            btnCalculate.setText(bundle.getString("calculate.button"));
+            lblDistance.setText(bundle.getString("distance.label"));
+            lblFuel.setText(bundle.getString("fuel.label"));
+            lblResult.setText("");
+        } catch (MissingResourceException e) {
+            e.printStackTrace();
+            lblResult.setText("Error loading language resources");
+        }
+        onCalculateClick();
     }
 
     @FXML
@@ -53,21 +57,21 @@ public class HelloController implements Initializable {
 
     @FXML
     private void onENClick() {
-        setLanguage(new Locale("en"));
+        setLanguage(new Locale("en", "EN"));
     }
 
     @FXML
     private void onFRClick() {
-        setLanguage(new Locale("fr"));
+        setLanguage(new Locale("fr", "FR"));
     }
 
     @FXML
     private void onJPClick() {
-        setLanguage(new Locale("ja"));
+        setLanguage(new Locale("jp", "JP"));
     }
 
     @FXML
     private void onIRClick() {
-        setLanguage(new Locale("fa"));
+        setLanguage(new Locale("ir", "PA"));
     }
 }
