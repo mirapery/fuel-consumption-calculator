@@ -10,10 +10,10 @@
       prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="HelloController">
 
-   <Button fx:id="btnEN" mnemonicParsing="false" text="Button" onAction="#onENClick"/>
-   <Button fx:id="btnFR" mnemonicParsing="false" text="Button" onAction="#onFRClick"/>
-   <Button fx:id="btnJP" mnemonicParsing="false" text="Button" onAction="#onJPClick"/>
-   <Button fx:id="btnIR" mnemonicParsing="false" text="Button" onAction="#onIRClick"/>
+   <Button fx:id="btnEN" mnemonicParsing="false" text="EN" onAction="#onENClick"/>
+   <Button fx:id="btnFR" mnemonicParsing="false" text="FR" onAction="#onFRClick"/>
+   <Button fx:id="btnJP" mnemonicParsing="false" text="JP" onAction="#onJPClick"/>
+   <Button fx:id="btnIR" mnemonicParsing="false" text="IR" onAction="#onIRClick"/>
    <Label fx:id="lblDistance" text="Label"/>
    <TextField fx:id="txtDistance"/>
    <Label fx:id="lblFuel" text="Label"/>
