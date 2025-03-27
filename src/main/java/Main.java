@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Main extends Application {
-    //private static Locale currentLocale = Locale.getDefault();
     private static Locale currentLocale = new Locale("en", "US");
 
     @Override
